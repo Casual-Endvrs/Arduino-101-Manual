@@ -33,13 +33,13 @@
 	
 	\subsection{Program}
 	
-	Arduinos are incredibly capable pieces of equipment. The challenge that we often find when programming is that computers do exactly what we \textbf{\textit{tell}} them to, not what we \textbf{\textit{want}} them to. This can be very frustrating at times. To help avoid confusion, it is beneficial to write down step-by-step what we want the program, or equipment, to do. I'll try to help you by providing this process in the beginning but you will need to do this yourself later. If you run into problems, a great first step for diagnosing issues is to compare what you program/Arduino is actually doing versus what you expected with your written out procedure.
+	Arduino is a small electronics board that is used to obtain measurements from sensors, like a light detector, and send commands to actuators, like motors. They are incredibly capable pieces of equipment. The challenge that we often find when programming is that computers do exactly what we \textbf{\textit{tell}} them to, not what we \textbf{\textit{want}} them to. This can be very frustrating at times. To help avoid confusion, it is beneficial to write down step-by-step what we want the program, or equipment, to do. I'll try to help you by providing this process in the beginning but you will need to do this yourself later. If you run into problems, a great first step for diagnosing issues is to compare what you program/Arduino is actually doing versus what you expected with your written out procedure.
 	
 	\subsection{Arduino Requirements}
 	
-	All Arduino programs will have two functions in them. Don't worry about what a function is at the moment, we will discuss them later.
+	All Arduino programs will have two functions in them.
 	
-	The first function is called \textbf{setup}. This runs right at the very beginning when the Arduino first starts up and is used for configuration. The online process we will use to make programs will actually take care of most of this for us. We can typically ignore this for now but it would become very important if we were typing the program instead of using code blocks.
+	The first function is called \textbf{setup}. This runs right at the very beginning when the Arduino first starts up and is used for configuration. The online process we will use to make programs will actually take care of most of this for us.
 	
 	The second function is called \textbf{loop}, it runs after \textbf{setup} and it runs over and over again in a loop. This is where you will put all of your instructions that you want the program/Arduino to do.
 	
@@ -47,7 +47,7 @@
 		\begin{center}
 			%\title{}
 			\includegraphics[scale=0.7]{p_minimal_program}
-			\caption{Example of the minimal requirements for an Arduino program.}
+			\caption{Example of the minimal required functions for an Arduino program.}
 			\label{prog:minimal_program}
 		\end{center}
 	\end{figure}
@@ -64,6 +64,8 @@
 	
 	Try connecting an LED up in a circuit as shown in figure \ref{fig:circuit_simple}.
 	
+	\textcolor{red}{Add some notes to describe the circuit. Consider the diode is polar.}
+	
 	\begin{figure}[H]
 		\begin{center}
 			%\title{}
@@ -75,7 +77,9 @@
 
 	\subsection{Program}
 	
-	The is no programming required for this circuit. The Arduino has no control over any of the pins we are using and all it does is provide power.
+	There is no programming required for this circuit. The Arduino has no control over any of the pins we are using and all it does is provide power.
+	
+	\textcolor{red}{What is the purpose of this section? \\ How many sections do you plan to go through a day?}
 	
 	\subsection{Objectives}
 	
@@ -91,7 +95,7 @@
 	
 	\section{Blink}
 	
-	Now that we have an LED that lights up, lets try changing things up a bit and automate it to blink. Rather than using power from the 5V supply of the Arduino, we will use a digital pin which we can turn on and off.
+	Now that we have an LED that lights up, lets try to automate it to blink. We will do this with a digital pin which we can turn on and off.
 	
 	\subsection{Circuit}
 	
@@ -110,7 +114,7 @@
 
 	\subsection{Program}
 	
-	The process for this program is very simple.
+	The process to automate the on/off sequence of the light is:
 	
 	\begin{enumerate}
 		\itemsep -1em
@@ -120,39 +124,39 @@
 		\item Delay for the time we want the LED to be off
 	\end{enumerate}
 
-	For this example I will provide you with an example of how to make this process work. Compare the above process with how the code blocks are setup. In this case, the program is set to wait 500 milliseconds, or half of a second, after the LED is switched on or off.
+	I will provide you with an example of how to make this process work. Compare the above process with how the code blocks are setup. In this case, the program is set to wait 500 milliseconds, or half of a second, after the LED is switched on or off.
 	
 	\begin{figure}[H]
 		\begin{center}
 			%\title{}
 			\includegraphics[scale=0.7]{p_blink}
-			\caption{Example of the minimal requirements for an Arduino program.}
+			\caption{Program to automatically blink an LED.}
 			\label{prog:blink}
 		\end{center}
 	\end{figure}
 	
-	In the future, I will only provide example code if something significantly new or different is introduced.
-	
+		
 	\subsection{Functions}
 	
 	Functions are a simple way to take a specific process, like the previous steps to turn an LED on and off, and make it easy to use. Functions also help make code easier to read, build, maintain and fix.
 	
-	Look at this example. It has the exact same process and outcome as our blink program except the steps to blink an LED are in a function and we refer to that function when we want the blink process to run.
+	Look at this example, Figure \ref{prog:blink_function}. It has the exact same process and outcome as our blink program except the steps to blink an LED are in a function and we refer to that function when we want the blink process to run.
 	
 	\begin{figure}[H]
 		\begin{center}
 			%\title{}
 			\includegraphics[scale=0.7]{p_blink_function}
-			\caption{Example of the minimal requirements for an Arduino program.}
+			\caption{Example program to blink an LED using a function.}
 			\label{prog:blink_function}
 		\end{center}
 	\end{figure}
 
-	Do you see how this is easier to read? When the Arduino is running it will \textbf{blink the LED}. If we want to see the exact process of how Arduino controls the LED and causes it to blink, we can look at the function \textbf{blink\_LED}.
+	%Do you see how this is easier to read?
+	When the Arduino is running it will \textbf{blink the LED}. If we want to see the exact process of how Arduino controls the LED and causes it to blink, we can look at the function \textbf{blink\_LED}.
 	
-	Imagine if we had 3, 10, or even a 100 LEDs to control. The \textbf{loop} function would get very confusing very quickly!
+	%Imagine if we had 3, 10, or even a 100 LEDs to control. The \textbf{loop} function would get very confusing very quickly!
 	
-	It should be noted that you have been using functions already, you just didn't realize it. Both \textbf{Write Digital Pin} and \textbf{Wait} are functions that are built-in to the Ardiuno system that you always have access to. These functions also have required input values. For \textbf{Write Digital Pin} you must provide the pin number that you want to make a change to and the new value that you want it to have. These functions help to make your life much easier as you do not need to understand what they are doing on a step-by-step level, you only need to know what they accomplish in the end.
+	It should be noted that you have been using functions already. Both \textbf{Write Digital Pin} and \textbf{Wait} are functions that are built-in to the Ardiuno system. These functions also have required input values. For \textbf{Write Digital Pin} you must provide the pin number that you want to make a change to and the new value that you want it to have. %These functions help to make your life much easier as you do not need to understand what they are doing on a step-by-step level, you only need to know what they accomplish in the end.
 	
 	
 	
@@ -160,10 +164,11 @@
 	
 	\noindent $\bigcirc$ Objective: Program the Arduino to switch the LED on and off.
 	
-	\noindent $\bigstar$ Bonus: What happens when you vary the amount of time in each of the delay blocks?
+	\noindent $\bigstar$ Bonus: What happens when you vary the amount of time in each of the delay, or \textbf{Wait}, blocks?
 	
 	\indent $\bigstar$ Reduce the time in each delay block to be less than 15 microseconds each. Can you still see the LED flash?
 	
+	\textcolor{red}{The objective is awkward and should be restated}
 	\indent $\bigstar$ Keep the total sum of time in each delay block to be 15 microseconds while changing the time in each delay block. For example, 3 and 12 microseconds? 5 and 10? 7 and 8? 12 and 3?
 	
 	
@@ -200,18 +205,22 @@
 	Do you get the result that you are expecting? Remember, real traffic lights never have all 3 lights off at the same time. This would cause confusion and people may not know what they are supposed to be doing if no light is on. Do you always have one LED being lit up?
 	
 	
-	\textcolor{red}{Is this a good time to introduce buttons?}
+	 %\textcolor{red}{Is this a good time to introduce buttons?}
 	
 	
 	\section{Controlling LED Brightness}
 	
-	Controlling the brightness of an LED can be done in two different ways. The first way to change the amount of current flowing through it using a resistor. The second method is actually a trick played on your eye, but we'll discuss this more in a bit.
+	Controlling the brightness of an LED can be done in two different ways. The first way is to change the amount of current flowing through it using a resistor. The second method is actually a trick played on your eye, but we'll discuss this in section \ref{ssec:PWM intro}.
 	
 	\subsection{Resistors: Reducing current flow}
 	
-	As stated at the beginning, LEDs cannot control the amount of current flowing through them. To ensure that they don't get damaged by too much current flowing through them we use resistors to limit the current flow. We can use this to our advantage to change how bright an LED is since the more current that flows through an LED, the brighter it is.
+	\textcolor{red}{What is current?}
 	
-	The following circuit uses a potentiometer, or pot, which is simply a resistor that we can change the resistance of. We will leave the resistor in the circuit that we were using before in place and add the potentiometer.
+	Resistors are an electrical device that reduce the amount of current flowing through a circuit. Since LEDs are unable to control the amount of current that flows through them, a resistor is always using to limit current flow. We can use this to our advantage to change how bright an LED is since the more current that flows through an LED, the brighter it is.
+	
+	\textcolor{red}{What is a circuit?}
+	
+	The following circuit uses a potentiometer, or pot, which is simply a resistor that we can change the resistance of the circuit. We will leave the resistor in the circuit that we were using before in place and add the potentiometer.
 	
 	\begin{figure}[H]
 	\begin{center}
@@ -232,6 +241,7 @@
 	
 	
 	\subsection{PWM: On/Off really fast!}
+	\label{ssec:PWM intro}
 	
 	The previous method used hardware and actually caused the LED to get brighter and dimmer. This second method will use software to achieve the same goal but this time it will only make the LED appear brighter or dimmer using an optical trick.
 	
@@ -250,7 +260,7 @@
 
 	\subsubsection{PWM Signals}
 	
-	On the Arduino board you will see a little ~ mark next to some of the pin numbers. This ~ indicates that the pin can be used to output a Pulse Width Modulated signal, or PWM signal. It sounds more complicated than it is.
+	On the Arduino board you will see a little $\sim$ mark next to some of the pin numbers. \textcolor{red}{(There should be a diagram/image to show this. Reference a nearby figure as the arduino is there?)} This $\sim$ indicates that the pin can be used to output a Pulse Width Modulated signal, or PWM signal.
 	
 	Remember at the beginning we made a program to blink the LED on and off repeatedly? That basically all a PWM signal is, turning a signal on and off. The difference is that we are now going to turn the light on and off really, really fast. Like, 480 times every second fast. The only control that we have over the PWM signal is the percent of time that the signal is on vs off.
 	
