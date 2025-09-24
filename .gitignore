@@ -5,3 +5,9 @@
 *.gz
 *.log
 *.xml
+
+# ignore temp files
+*.odp#
+
+
+
